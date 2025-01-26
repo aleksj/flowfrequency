@@ -17,7 +17,7 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     rollupOptions: {
-      external: ['@tanstack/react-query', 'react-router-dom']
+      external: ['@tanstack/react-query', 'react-router-dom', 'lucide-react']
     }
   }
 });
