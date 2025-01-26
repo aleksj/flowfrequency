@@ -25,7 +25,8 @@ export default defineConfig({
         'sonner',
         '@radix-ui/react-tooltip',
         'class-variance-authority',
-        'tailwind-merge'
+        'tailwind-merge',
+        '@radix-ui/react-toast'
       ]
     }
   }
