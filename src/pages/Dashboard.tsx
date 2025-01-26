@@ -2,10 +2,23 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, Music, Zap, LineChart, History, Settings } from "lucide-react";
 import { TestCard } from "@/components/TestCard";
+import { useEffect, useState } from "react";
+import { SessionData } from "@/components/game/types";
 
 const Dashboard = () => {
+  const [gameData, setGameData] = useState<SessionData[]>([]);
+
+  useEffect(() => {
+    const savedData = localStorage.getItem('bpmGameData');
+    if (savedData) {
+      setGameData(JSON.parse(savedData));
+    }
+  }, []);
+
+  const lastSession = gameData[gameData.length - 1];
+
   return (
-    <div className="min-h-screen w-full bg-black text-foreground">
+    <div className="min-h-screen w-full bg-black text-white">
       {/* Header */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,8 +51,10 @@ const Dashboard = () => {
                   <Brain className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Focus Score</p>
-                  <h3 className="text-2xl font-bold">85%</h3>
+                  <p className="text-sm text-white/60">Focus Score</p>
+                  <h3 className="text-2xl font-bold text-white">
+                    {lastSession ? `${((lastSession.correct / lastSession.totalQuestions) * 100).toFixed(1)}%` : 'N/A'}
+                  </h3>
                 </div>
               </div>
             </Card>
@@ -49,8 +64,10 @@ const Dashboard = () => {
                   <Music className="w-6 h-6 text-secondary" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Optimal BPM</p>
-                  <h3 className="text-2xl font-bold">120</h3>
+                  <p className="text-sm text-white/60">Optimal BPM</p>
+                  <h3 className="text-2xl font-bold text-white">
+                    {lastSession ? Math.round(lastSession.optimalBpm) : 'N/A'}
+                  </h3>
                 </div>
               </div>
             </Card>
@@ -60,25 +77,37 @@ const Dashboard = () => {
                   <Zap className="w-6 h-6 text-accent" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">Tests Completed</p>
-                  <h3 className="text-2xl font-bold">12</h3>
+                  <p className="text-sm text-white/60">Tests Completed</p>
+                  <h3 className="text-2xl font-bold text-white">{gameData.length}</h3>
                 </div>
               </div>
-            </Card>
+            </div>
           </div>
 
           {/* Performance Graph */}
           <Card className="bg-card glass p-6 border-white/10">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold">Performance History</h2>
-              <Button variant="outline" size="sm" className="border-white/10">
+              <h2 className="text-xl font-semibold text-white">Performance History</h2>
+              <Button variant="outline" size="sm" className="border-white/10 text-white">
                 <History className="mr-2 h-4 w-4" />
                 View All
               </Button>
             </div>
-            <div className="h-64 flex items-center justify-center text-muted-foreground">
-              Performance graph will be implemented here
-            </div>
+            {lastSession ? (
+              <div className="space-y-4 text-white">
+                <p>Last Session Details:</p>
+                <ul className="space-y-2 text-white/60">
+                  <li>Score: {lastSession.correct} / {lastSession.totalQuestions}</li>
+                  <li>Average Response Time: {Math.round(lastSession.responseTimes.reduce((a, b) => a + b, 0) / lastSession.responseTimes.length)}ms</li>
+                  <li>Starting BPM: {lastSession.startBpm}</li>
+                  <li>Ending BPM: {lastSession.endBpm}</li>
+                </ul>
+              </div>
+            ) : (
+              <div className="h-64 flex items-center justify-center text-white/60">
+                No performance data available yet
+              </div>
+            )}
           </Card>
 
           {/* Recent Tests */}
@@ -107,7 +136,8 @@ const Dashboard = () => {
           <div className="flex justify-center pt-8">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300"
+              onClick={() => window.location.href = '/game'}
+              className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300 text-white"
             >
               Start New Test
               <LineChart className="ml-2 h-4 w-4" />

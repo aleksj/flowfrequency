@@ -3,16 +3,15 @@ import { BpmVisualizer } from "@/components/BpmVisualizer";
 import { Button } from "@/components/ui/button";
 import { Music, Brain, Zap, Sparkles, Headphones, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const { toast } = useToast();
   const [currentBpm] = useState(80);
+  const navigate = useNavigate();
 
   const handleTestStart = () => {
-    toast({
-      title: "Coming Soon",
-      description: "This feature will be available in the next update!",
-    });
+    navigate('/game');
   };
 
   return (
