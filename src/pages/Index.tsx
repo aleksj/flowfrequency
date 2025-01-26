@@ -18,29 +18,52 @@ const Index = () => {
 
   return (
     <div className="min-h-screen w-full bg-background text-foreground">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex-shrink-0">
+              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                FlowFrequency
+              </h1>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F2C] via-primary/20 to-background" />
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20" />
         <div className="relative max-w-7xl mx-auto">
-          <div className="text-center animate-fade-in">
-            <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
-              FlowFrequency
-            </h1>
-            <p className="text-xl sm:text-2xl text-muted-foreground mb-8">
-              Discover your optimal performance rhythm
-            </p>
-            <div className="max-w-lg mx-auto mb-12">
-              <BpmVisualizer bpm={currentBpm} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-left animate-fade-in">
+              <h2 className="text-4xl sm:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
+                Discover your optimal performance rhythm
+              </h2>
+              <p className="text-xl sm:text-2xl text-muted-foreground mb-8">
+                Enhance your productivity with personalized music recommendations
+              </p>
+              <div className="mb-8">
+                <BpmVisualizer bpm={currentBpm} />
+              </div>
+              <Button
+                size="lg"
+                onClick={handleTestStart}
+                className="animate-pulse hover:animate-none bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all duration-300"
+              >
+                Start Test Now
+                <Sparkles className="ml-2" />
+              </Button>
             </div>
-            <Button
-              size="lg"
-              onClick={handleTestStart}
-              className="animate-pulse hover:animate-none bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all duration-300"
-            >
-              Start Test Now
-              <Sparkles className="ml-2" />
-            </Button>
+            <div className="relative animate-float">
+              <img
+                src="/placeholder.svg"
+                alt="Person with headphones"
+                className="rounded-lg shadow-2xl w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent rounded-lg" />
+            </div>
           </div>
         </div>
       </section>
