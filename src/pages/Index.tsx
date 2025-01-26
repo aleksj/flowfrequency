@@ -39,7 +39,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-32 pb-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-secondary/5 to-black" />
+        <div className="absolute inset-0 bg-black" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
             <h2 className="text-4xl sm:text-6xl font-bold mb-6 text-white">
@@ -58,7 +58,7 @@ const Index = () => {
             <Button
               size="lg"
               onClick={handleTestStart}
-              className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300 text-white"
+              className="bg-gradient-to-r from-[#1EAEDB] via-[#0FA0CE] to-accent hover:opacity-90 transition-all duration-300 text-white"
             >
               Start Your Test Now
               <Sparkles className="ml-2" />
@@ -108,9 +108,6 @@ const Index = () => {
         </h2>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 relative">
-            {/* Line connecting the steps */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-white transform -translate-y-1/2 z-0" />
-            
             {/* Steps */}
             <div className="flex-1 relative z-10">
               <div className="bg-card glass p-6 rounded-lg border border-white/10 h-full">
@@ -169,7 +166,7 @@ const Index = () => {
       </section>
 
       {/* Try It Now Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-black to-primary/10">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-black to-black">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8 text-white">
             Ready to Find Your Beat?
@@ -180,7 +177,7 @@ const Index = () => {
           <Button
             size="lg"
             onClick={handleTestStart}
-            className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300 text-white"
+            className="bg-gradient-to-r from-[#1EAEDB] via-[#0FA0CE] to-accent hover:opacity-90 transition-all duration-300 text-white"
           >
             Start Your Test Now
             <ArrowRight className="ml-2" />
