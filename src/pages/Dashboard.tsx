@@ -81,7 +81,7 @@ const Dashboard = () => {
                   <h3 className="text-2xl font-bold text-white">{gameData.length}</h3>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
 
           {/* Performance Graph */}
