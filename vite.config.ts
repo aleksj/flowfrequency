@@ -23,7 +23,8 @@ export default defineConfig({
         'lucide-react',
         'next-themes',
         'sonner',
-        '@radix-ui/react-tooltip'
+        '@radix-ui/react-tooltip',
+        'class-variance-authority'
       ]
     }
   }
