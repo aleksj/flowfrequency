@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BpmVisualizer } from "@/components/BpmVisualizer";
 import { Button } from "@/components/ui/button";
-import { Music, Brain, Zap, Sparkles, Headphones, ArrowRight, Google } from "lucide-react";
+import { Music, Brain, Zap, Sparkles, Headphones, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Index = () => {
@@ -28,10 +28,11 @@ const Index = () => {
               </h1>
             </div>
             <Button
+              variant="outline"
+              className="border-primary hover:bg-primary/20"
               onClick={handleTestStart}
-              className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300"
             >
-              <Google className="w-4 h-4" />
+              Login with Google
             </Button>
           </div>
         </div>
