@@ -24,7 +24,8 @@ export default defineConfig({
         'next-themes',
         'sonner',
         '@radix-ui/react-tooltip',
-        'class-variance-authority'
+        'class-variance-authority',
+        'tailwind-merge'
       ]
     }
   }
