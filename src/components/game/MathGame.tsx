@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { MusicGenerator } from '../../lib/audio/MusicGenerator';
 import { Question, Performance, SessionData } from './types';
 import { generateQuestions, optimizeBpm, shouldEvaluateBpm, gameConfig } from './gameLogic';
+import { Card } from '@/components/ui/card';
+import { Brain, Music, Zap } from 'lucide-react';
 
 interface MathGameProps {
     onGameOver?: (sessionData: SessionData) => void;
@@ -135,10 +137,10 @@ export function MathGame({ onGameOver }: MathGameProps) {
 
     if (isLoading || !questions[currentQuestion]) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
+            <div className="min-h-screen flex items-center justify-center bg-black">
                 <div className="text-center p-8">
-                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
-                    <p>Loading game...</p>
+                    <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary mx-auto mb-4"></div>
+                    <p className="text-muted-foreground">Loading game...</p>
                 </div>
             </div>
         );
@@ -151,16 +153,36 @@ export function MathGame({ onGameOver }: MathGameProps) {
         const accuracy = (correctCount / gameConfig.numQuestions) * 100;
 
         return (
-            <div className="min-h-screen flex items-center justify-center bg-gray-50">
-                <div className="max-w-md w-full p-8 bg-white rounded-lg shadow-lg">
-                    <h1 className="text-2xl font-bold mb-4">Game Over!</h1>
-                    <p className="mb-2">You got {correctCount} out of {gameConfig.numQuestions} correct.</p>
-                    <p className="mb-2">Accuracy: {accuracy.toFixed(1)}%</p>
-                    <p className="mb-2">Average response time: {avgResponseTime}ms</p>
-                    <p className="mb-2">Starting BPM: {gameConfig.minBpm}</p>
-                    <p className="mb-2">Ending BPM: {currentBpm.toFixed(1)}</p>
-                    <p className="mb-4">Optimal BPM: {optimalBpm.toFixed(1)}</p>
-                </div>
+            <div className="min-h-screen flex items-center justify-center bg-black">
+                <Card className="max-w-md w-full p-8 bg-card glass border border-white/10">
+                    <h1 className="text-2xl font-bold mb-6 text-foreground">Game Over!</h1>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div className="flex items-center gap-4">
+                            <div className="p-3 rounded-full bg-primary/20">
+                                <Brain className="w-6 h-6 text-primary" />
+                            </div>
+                            <div>
+                                <p className="text-sm text-muted-foreground">Accuracy</p>
+                                <h3 className="text-2xl font-bold text-foreground">{accuracy.toFixed(1)}%</h3>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <div className="p-3 rounded-full bg-secondary/20">
+                                <Music className="w-6 h-6 text-secondary" />
+                            </div>
+                            <div>
+                                <p className="text-sm text-muted-foreground">Final BPM</p>
+                                <h3 className="text-2xl font-bold text-foreground">{currentBpm.toFixed(1)}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="space-y-2 text-muted-foreground">
+                        <p>Score: {correctCount} / {gameConfig.numQuestions}</p>
+                        <p>Average response: {avgResponseTime}ms</p>
+                        <p>Starting BPM: {gameConfig.minBpm}</p>
+                        <p>Optimal BPM: {optimalBpm.toFixed(1)}</p>
+                    </div>
+                </Card>
             </div>
         );
     }
@@ -169,39 +191,49 @@ export function MathGame({ onGameOver }: MathGameProps) {
     const progress = (currentQuestion / gameConfig.numQuestions) * 100;
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-gray-50">
-            <div className="w-full max-w-2xl bg-white rounded-lg shadow-lg p-8">
+        <div className="min-h-screen flex flex-col items-center justify-center bg-black p-8">
+            <Card className="w-full max-w-2xl bg-card glass border border-white/10 p-8">
                 <div className="flex justify-between items-center mb-6">
-                    <div className="flex flex-col space-y-2">
-                        <h1 className="text-2xl font-bold">Current BPM: {Math.round(currentBpm)}</h1>
-                        <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="flex flex-col space-y-2 w-full">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                                <div className="p-3 rounded-full bg-primary/20">
+                                    <Zap className="w-6 h-6 text-primary" />
+                                </div>
+                                <div>
+                                    <p className="text-sm text-muted-foreground">Current BPM</p>
+                                    <h3 className="text-2xl font-bold text-foreground">{Math.round(currentBpm)}</h3>
+                                </div>
+                            </div>
+                            {isAudioLoading && (
+                                <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-primary"></div>
+                            )}
+                        </div>
+                        <div className="w-full h-2 bg-muted rounded-full overflow-hidden">
                             <div 
-                                className="h-full bg-blue-500 transition-all duration-300"
+                                className="h-full bg-primary transition-all duration-300"
                                 style={{ 
                                     width: `${((currentBpm - gameConfig.minBpm) / (gameConfig.maxBpm - gameConfig.minBpm)) * 100}%`,
                                 }}
                             />
                         </div>
                     </div>
-                    {isAudioLoading && (
-                        <div className="animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-blue-500"></div>
-                    )}
                 </div>
 
                 <div className="mb-4">
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div className="w-full h-2 bg-muted rounded-full">
                         <div 
-                            className="bg-blue-500 h-2.5 rounded-full transition-all duration-300"
+                            className="bg-secondary h-2 rounded-full transition-all duration-300"
                             style={{ width: `${progress}%` }}
                         />
                     </div>
-                    <p className="text-center text-sm text-gray-600 mt-2">
+                    <p className="text-center text-sm text-muted-foreground mt-2">
                         Question {currentQuestion + 1} of {gameConfig.numQuestions}
                     </p>
                 </div>
 
                 <div className="mb-8">
-                    <div className="text-3xl font-bold text-center py-4 bg-gray-50 rounded">
+                    <div className="text-4xl font-bold text-center py-8 bg-card/50 rounded-lg border border-white/5">
                         {expression} = ?
                     </div>
                 </div>
@@ -211,17 +243,17 @@ export function MathGame({ onGameOver }: MathGameProps) {
                         <button
                             key={num}
                             onClick={() => handleAnswer(num)}
-                            className="bg-white border-2 border-gray-300 rounded-lg p-4 text-2xl font-bold hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="bg-card/50 border border-white/10 rounded-lg p-6 text-2xl font-bold hover:bg-primary/20 focus:outline-none focus:ring-2 focus:ring-primary transition-all duration-300"
                         >
                             {num}
                         </button>
                     ))}
                 </div>
 
-                <div className="mt-4 text-center text-sm text-gray-600">
+                <div className="mt-4 text-center text-sm text-muted-foreground">
                     Press 1-4 on your keyboard to answer
                 </div>
-            </div>
+            </Card>
         </div>
     );
 }
