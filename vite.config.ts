@@ -17,17 +17,9 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     rollupOptions: {
-      external: [
-        '@tanstack/react-query',
-        'react-router-dom',
-        'lucide-react',
-        'next-themes',
-        'sonner',
-        '@radix-ui/react-tooltip',
-        'class-variance-authority',
-        'tailwind-merge',
-        '@radix-ui/react-toast'
-      ]
+      output: {
+        manualChunks: undefined
+      }
     }
   }
 });
