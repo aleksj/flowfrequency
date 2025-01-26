@@ -1,4 +1,4 @@
-import { Rocket, Headphones, Zap, Sparkles } from "lucide-react";
+import { Rocket, Headphones, Zap, Sparkles, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface TestCardProps {
@@ -8,14 +8,14 @@ interface TestCardProps {
 }
 
 export const TestCard = ({ title, description, icon }: TestCardProps) => {
-  const icons = {
+  const icons: Record<string, LucideIcon> = {
     rocket: Rocket,
     headphones: Headphones,
     zap: Zap,
     sparkles: Sparkles
   };
 
-  const Icon = icons[icon];
+  const IconComponent = icons[icon];
 
   return (
     <div 
@@ -23,7 +23,7 @@ export const TestCard = ({ title, description, icon }: TestCardProps) => {
     >
       <div className="relative z-10">
         <div className="mb-4 w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center">
-          <Icon className="w-6 h-6 text-primary" />
+          {IconComponent && <IconComponent className="w-6 h-6 text-primary" />}
         </div>
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="text-muted-foreground">{description}</p>
