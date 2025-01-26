@@ -45,13 +45,13 @@ const Index = () => {
                 Enhance your productivity with personalized music recommendations
               </p>
             </div>
-            <div className="relative animate-float">
+            <div className="relative">
               <img
-                src="/placeholder.svg"
-                alt="Person with headphones"
+                src="/lovable-uploads/c60033b6-96e3-45f4-a895-ae855dc5828c.png"
+                alt="Person with headphones enjoying music"
                 className="rounded-lg shadow-2xl w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-lg" />
             </div>
           </div>
           
@@ -63,38 +63,41 @@ const Index = () => {
             <Button
               size="lg"
               onClick={handleTestStart}
-              className="animate-pulse hover:animate-none bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300"
+              className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300"
             >
-              Start Test Now
+              Solve & Play
               <Sparkles className="ml-2" />
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* How It Works Steps */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/50">
+        <h2 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+          How It Works
+        </h2>
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <TestCard
-              title="Solve & Play"
-              description="Take a quick test solving a problem or playing a game while we analyze your performance."
+              title="Take the Test"
+              description="Start with a quick cognitive test while listening to different music tempos."
               icon="rocket"
             />
             <TestCard
-              title="Feel the Beat"
-              description="Complete tasks while listening to music at different BPM ranges."
-              icon="headphones"
-            />
-            <TestCard
-              title="Optimize Performance"
-              description="Identify the beats that drive your best results through data analysis."
+              title="Analyze Performance"
+              description="Our system tracks your performance across different BPM ranges."
               icon="zap"
             />
             <TestCard
-              title="Get Recommendations"
-              description="Receive personalized music suggestions to enhance your future performance."
+              title="Get Your Results"
+              description="Discover which music tempo helps you perform at your best."
               icon="sparkles"
+            />
+            <TestCard
+              title="Personalized Playlist"
+              description="Receive custom music recommendations that match your optimal tempo."
+              icon="headphones"
             />
           </div>
         </div>
@@ -104,28 +107,28 @@ const Index = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/30">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="flex flex-col items-center text-center p-6 animate-float">
+            <div className="flex flex-col items-center text-center p-6">
               <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
                 <Music className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Rhythm Analysis</h3>
               <p className="text-muted-foreground">Track your performance across different BPM ranges</p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 animate-float">
+            <div className="flex flex-col items-center text-center p-6">
               <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-4">
                 <Brain className="w-6 h-6 text-secondary" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Cognitive Testing</h3>
               <p className="text-muted-foreground">Measure your focus and problem-solving abilities</p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 animate-float">
+            <div className="flex flex-col items-center text-center p-6">
               <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-accent" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Real-time Feedback</h3>
               <p className="text-muted-foreground">Get instant insights about your performance</p>
             </div>
-            <div className="flex flex-col items-center text-center p-6 animate-float">
+            <div className="flex flex-col items-center text-center p-6">
               <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mb-4">
                 <Sparkles className="w-6 h-6 text-primary" />
               </div>
