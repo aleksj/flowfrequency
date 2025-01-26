@@ -101,47 +101,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Steps */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white">
-          How It Works
-        </h2>
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row gap-8 relative">
-            {/* Steps */}
-            <div className="flex-1 relative z-10">
-              <div className="bg-card glass p-6 rounded-lg border border-white/10 h-full">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/20 mb-4 mx-auto">
-                  <span className="text-xl font-bold text-primary">1</span>
-                </div>
-                <h3 className="text-xl font-semibold text-center mb-2 text-white">Take the Test</h3>
-                <p className="text-gray-300 text-center">Complete our cognitive assessment with varying beats</p>
-              </div>
-            </div>
-
-            <div className="flex-1 relative z-10">
-              <div className="bg-card glass p-6 rounded-lg border border-white/10 h-full">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-secondary/20 mb-4 mx-auto">
-                  <span className="text-xl font-bold text-secondary">2</span>
-                </div>
-                <h3 className="text-xl font-semibold text-center mb-2 text-white">Find Your Beat</h3>
-                <p className="text-gray-300 text-center">Discover your optimal performance frequency</p>
-              </div>
-            </div>
-
-            <div className="flex-1 relative z-10">
-              <div className="bg-card glass p-6 rounded-lg border border-white/10 h-full">
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/20 mb-4 mx-auto">
-                  <span className="text-xl font-bold text-accent">3</span>
-                </div>
-                <h3 className="text-xl font-semibold text-center mb-2 text-white">Get Your Playlist</h3>
-                <p className="text-gray-300 text-center">Receive a curated playlist matching your optimal beat</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Science Behind Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto">
