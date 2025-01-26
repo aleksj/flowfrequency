@@ -17,7 +17,14 @@ export default defineConfig({
     outDir: 'dist',
     sourcemap: true,
     rollupOptions: {
-      external: ['@tanstack/react-query', 'react-router-dom', 'lucide-react', 'next-themes', 'sonner']
+      external: [
+        '@tanstack/react-query',
+        'react-router-dom',
+        'lucide-react',
+        'next-themes',
+        'sonner',
+        '@radix-ui/react-tooltip'
+      ]
     }
   }
 });
