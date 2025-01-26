@@ -88,7 +88,7 @@ const Dashboard = () => {
               <TestCard
                 title="Focus Test"
                 description="Test your concentration with varying rhythms"
-                icon="brain"
+                icon="rocket"
               />
               <TestCard
                 title="Memory Test"
