@@ -22,7 +22,7 @@ const Index = () => {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center gap-2">
               <Headphones className="w-6 h-6 text-primary" />
-              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#1EAEDB] via-[#0FA0CE] to-accent">
                 FlowFrequency
               </h1>
             </div>
@@ -42,7 +42,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-primary/10 via-secondary/5 to-black" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-fade-in">
-            <h2 className="text-4xl sm:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+            <h2 className="text-4xl sm:text-6xl font-bold mb-6 text-white">
               Discover your optimal performance beat
             </h2>
             <p className="text-xl sm:text-2xl text-gray-300 mb-8">
@@ -71,7 +71,7 @@ const Index = () => {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+            <h2 className="text-3xl font-bold mb-4 text-gray-100">
               Measure Your Focus & Problem-Solving
             </h2>
             <p className="text-lg text-gray-300">
@@ -103,13 +103,13 @@ const Index = () => {
 
       {/* How It Works Steps */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/50">
-        <h2 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+        <h2 className="text-3xl font-bold text-center mb-12 text-white">
           How It Works
         </h2>
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row gap-8 relative">
             {/* Line connecting the steps */}
-            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-secondary to-accent transform -translate-y-1/2 z-0" />
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-0.5 bg-white transform -translate-y-1/2 z-0" />
             
             {/* Steps */}
             <div className="flex-1 relative z-10">
@@ -148,7 +148,7 @@ const Index = () => {
       {/* Science Behind Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-primary/10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+          <h2 className="text-3xl font-bold text-center mb-12 text-white">
             The Science Behind It
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
@@ -171,7 +171,7 @@ const Index = () => {
       {/* Try It Now Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-black to-primary/10">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+          <h2 className="text-3xl font-bold mb-8 text-white">
             Ready to Find Your Beat?
           </h2>
           <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
