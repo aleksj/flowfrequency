@@ -27,6 +27,13 @@ const Index = () => {
                 FlowFrequency
               </h1>
             </div>
+            <Button
+              variant="outline"
+              className="border-primary hover:bg-primary/20"
+              onClick={handleTestStart}
+            >
+              Login with Google
+            </Button>
           </div>
         </div>
       </nav>
@@ -54,9 +61,43 @@ const Index = () => {
               onClick={handleTestStart}
               className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300"
             >
-              Solve & Play
+              Start Your Test Now
               <Sparkles className="ml-2" />
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Focus Measurement Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent">
+              Measure Your Focus & Problem-Solving
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Take our interactive test to discover how different beats affect your cognitive performance
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-card glass p-6 rounded-lg border border-white/10">
+              <div className="flex items-center gap-4 mb-4">
+                <Brain className="w-8 h-8 text-primary" />
+                <h3 className="text-xl font-semibold">Focus Assessment</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Complete engaging tasks while listening to different rhythms to measure your concentration levels
+              </p>
+            </div>
+            <div className="bg-card glass p-6 rounded-lg border border-white/10">
+              <div className="flex items-center gap-4 mb-4">
+                <Zap className="w-8 h-8 text-secondary" />
+                <h3 className="text-xl font-semibold">Problem-Solving</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Solve cognitive challenges as we analyze how various beats influence your problem-solving abilities
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -142,7 +183,7 @@ const Index = () => {
             onClick={handleTestStart}
             className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-all duration-300"
           >
-            Try It Now
+            Start Your Test Now
             <ArrowRight className="ml-2" />
           </Button>
         </div>
