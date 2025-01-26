@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BpmVisualizer } from "@/components/BpmVisualizer";
 import { TestCard } from "@/components/TestCard";
+import { Button } from "@/components/ui/button";
 import { Music, Brain, Zap, Sparkles } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -19,7 +20,8 @@ const Index = () => {
     <div className="min-h-screen w-full bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/20 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1A1F2C] via-primary/20 to-background" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20" />
         <div className="relative max-w-7xl mx-auto">
           <div className="text-center animate-fade-in">
             <h1 className="text-4xl sm:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary">
@@ -31,6 +33,14 @@ const Index = () => {
             <div className="max-w-lg mx-auto mb-12">
               <BpmVisualizer bpm={currentBpm} />
             </div>
+            <Button
+              size="lg"
+              onClick={handleTestStart}
+              className="animate-pulse hover:animate-none bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all duration-300"
+            >
+              Start Test Now
+              <Sparkles className="ml-2" />
+            </Button>
           </div>
         </div>
       </section>
@@ -42,22 +52,22 @@ const Index = () => {
             <TestCard
               title="Solve & Play"
               description="Take a quick test solving a problem or playing a game while we analyze your performance."
-              onClick={handleTestStart}
+              icon="rocket"
             />
             <TestCard
               title="Feel the Beat"
               description="Complete tasks while listening to music at different BPM ranges."
-              onClick={handleTestStart}
+              icon="headphones"
             />
             <TestCard
               title="Optimize Performance"
               description="Identify the beats that drive your best results through data analysis."
-              onClick={handleTestStart}
+              icon="zap"
             />
             <TestCard
               title="Get Recommendations"
               description="Receive personalized music suggestions to enhance your future performance."
-              onClick={handleTestStart}
+              icon="sparkles"
             />
           </div>
         </div>
