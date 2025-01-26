@@ -15,7 +15,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-black text-white">
+    <div className="min-h-screen w-full bg-black text-white overflow-x-hidden">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-black/50 backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -68,7 +68,7 @@ const Index = () => {
       </section>
 
       {/* Focus Measurement Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-gray-100">
@@ -102,7 +102,7 @@ const Index = () => {
       </section>
 
       {/* How It Works Steps */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black/50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
         <h2 className="text-3xl font-bold text-center mb-12 text-white">
           How It Works
         </h2>
@@ -143,7 +143,7 @@ const Index = () => {
       </section>
 
       {/* Science Behind Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-primary/10">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-white">
             The Science Behind It
@@ -166,7 +166,7 @@ const Index = () => {
       </section>
 
       {/* Try It Now Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-t from-black to-black">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-8 text-white">
             Ready to Find Your Beat?
