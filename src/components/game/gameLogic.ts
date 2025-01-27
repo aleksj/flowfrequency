@@ -1,9 +1,9 @@
 import { Question, Performance, GameConfig } from './types';
 
 const DEFAULT_CONFIG: GameConfig = {
-    numQuestions: 100,
+    numQuestions: 30,
     minBpm: 80,
-    maxBpm: 120,
+    maxBpm: 160,
     evaluationInterval: 5,
     performanceWindow: 5,
     possibleAnswers: [1, 2, 3, 4]
