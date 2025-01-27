@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/components/ui/use-toast';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import { downloadPerformanceData } from '@/lib/utils/csvExport';
+
 
 export default function Game() {
   const navigate = useNavigate();
@@ -14,6 +16,9 @@ export default function Game() {
     const existingData = JSON.parse(localStorage.getItem('bpmGameData') || '[]') as SessionData[];
     existingData.push(sessionData);
     localStorage.setItem('bpmGameData', JSON.stringify(existingData));
+    
+    // Download CSV
+    downloadPerformanceData(sessionData.performanceHistory, sessionData);
     
     toast({
       title: "Game completed!",
