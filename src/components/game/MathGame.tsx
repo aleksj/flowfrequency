@@ -94,7 +94,7 @@ export function MathGame({ onGameOver }: MathGameProps) {
                 totalQuestions: gameConfig.numQuestions,
                 responseTimes: [...responseTimes, timeTaken],
                 performanceHistory: [...performanceHistory, newPerformance],
-                optimalBpm
+                optimalBpm: currentBpm
             };
 
             if (onGameOver) {
@@ -179,8 +179,10 @@ export function MathGame({ onGameOver }: MathGameProps) {
                     <div className="space-y-2 text-muted-foreground">
                         <p>Score: {correctCount} / {gameConfig.numQuestions}</p>
                         <p>Average response: {avgResponseTime}ms</p>
-                        <p>Starting BPM: {gameConfig.minBpm}</p>
-                        <p>Optimal BPM: {optimalBpm.toFixed(1)}</p>
+                    </div>
+                    <div className="mt-6 pt-6 border-t border-white/10">
+                        <p className="text-sm text-muted-foreground">Try searching YouTube for:</p>
+                        <p className="text-foreground font-medium">LoFi music {Math.round(currentBpm)} bpm</p>
                     </div>
                 </Card>
             </div>
